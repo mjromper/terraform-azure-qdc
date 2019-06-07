@@ -12,7 +12,7 @@ client_secret = "shhhhhhhhhhhhhhhhhhhhhhh"
 subscription_id = "aaaaaaaaaa-bbbbbbb-ccccc"
 #these are up to you.
 deloyment_name = "qdc"
-server_hostname="qdc-lkn" needs to be unique within the azure_location
+server_hostname="qdc-hostname" needs to be unique within the azure_location
 azure_location="East US"
 administrator="qdc"
 administrator_pass="Pass$SECRET-2001" # needs to meet password complexity rules
