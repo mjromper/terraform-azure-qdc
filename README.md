@@ -46,3 +46,5 @@ initial credentials should be provided in your QDC documentation and you will ne
 This has been developed and tested from the client side on ubuntu using WSL in windows 10.  Any linux/unix environment should work, but others have not been tested.
 
 This has been built for **_demo purposes only_**.  It should not be seen as secure, production grade nor best practice.  This was primarily done as a learning exercise for myself.  QDC 4.06 is not officially supported for single server mode at this time.  This will be updated to the supported version when it is release.
+
+Thanks to Clint Carr's https://github.com/clintcarr/qlik-sense-azure-terraform which I used as a template and was a huge help!
