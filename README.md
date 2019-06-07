@@ -1,2 +1,48 @@
 # terraform-azure-qdc
-terraform scripts for deploying QDC on Azure
+terraform scripts for deploying QDC 4.0.6 in Single Server mode on Azure
+
+---
+## What you need:
+a variables file i.e. __qdc.tfvars__ containing:
+```Bash
+#these comes from your azure tenant
+tenant_id = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+client_id = "bbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+client_secret = "shhhhhhhhhhhhhhhhhhhhhhh"
+subscription_id = "aaaaaaaaaa-bbbbbbb-ccccc"
+#these are up to you.
+deloyment_name = "qdc"
+server_hostname="qdc-lkn" needs to be unique within the azure_location
+azure_location="East US"
+administrator="qdc"
+administrator_pass="Pass$SECRET-2001" # needs to meet password complexity rules
+```
+
+ssh keys set up.  It is expecting to find *~/.ssh/id_rsa.pub* & *~/.ssh/id_rsa*
+
+And most importantly, you need the QDC installers:
+- podium-4.0.6-19.zip
+- QDCinstaller.zip
+
+These are not publicly downloadable at this time and need to be obtained from your Qlik representative. 
+
+## How to:
+```Bash
+cd /somedirectory
+git clone https://github.com/ljckennedy/terraform-azure-qdc.git
+cp myvarsfileicreated.tfvars ./terraform-azure-qdc/qdc.tfvars
+cp /my-qdc-installers/*.zip ./terraform-azure-qdc/install/files/
+cd ./terraform-azure-qdc
+terraform init
+terraform apply -var-file=qdc.tfvars
+```
+All going well this should run for about 20-30 minutes (largely dependent on the time to upload the installers) and when complete you should be able to connect to QDC at (for example)
+http://qdc-hostname.eastus.cloudapp.azure.com:8080/qdc
+
+initial credentials should be provided in your QDC documentation and you will need to aply your QDC license.
+
+---
+## Notes
+This has been developed and tested from the client side on ubuntu using WSL in windows 10.  Any linux/unix environment should work, but others have not been tested.
+
+This has been built for **_demo purposes only_**.  It should not be seen as secure, production grade nor best practice.  This was primarily done as a learning exercise for myself.  QDC 4.06 is not officially supported for single server mode at this time.  This will be updated to the supported version when it is release.
