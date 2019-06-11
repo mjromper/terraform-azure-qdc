@@ -5,11 +5,25 @@ This repo is based on original Leigh's Kennedy https://github.com/ljckennedy/ter
 
 ---
 ## What you need:
+Create a Service Principal if you still don't have one:
+```Bash
+az ad sp create-for-rbac
+
+A response like this will return
+{
+  "appId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "displayName": "azure-cli-2019-06-11-10-25-44",
+  "name": "http://azure-cli-2019-06-11-10-25-44",
+  "password": "shhhhhhhhhhhhhhhhhhhhhhh",
+  "tenant": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}
+```
+
 a variables file i.e. __qdc.tfvars__ containing:
 ```Bash
 #these comes from your azure tenant
 tenant_id = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-client_id = "bbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+client_id = "bbbbbbbbbbbbbbbbbbbbbbbbbbbb" #app
 client_secret = "shhhhhhhhhhhhhhhhhhhhhhh"
 subscription_id = "aaaaaaaaaa-bbbbbbb-ccccc"
 presales_rg_name="Pre-Sales-<trigram>" #Predefined RG in Qlik Presales Azure subscription
