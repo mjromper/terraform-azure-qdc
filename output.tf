@@ -1,4 +1,5 @@
+# Using private IP as no public IP is used in Presales Azure
 output "Connect-to-QDC-at" {
-  value = "http://${azurerm_public_ip.qdc-pub-ip.fqdn}:8080/qdc"
+  value = "http://${azurerm_network_interface.qdc-nic.private_ip_address}:8080/qdc"
 }
 

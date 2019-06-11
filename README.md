@@ -1,5 +1,7 @@
 # terraform-azure-qdc
-terraform scripts for deploying QDC 4.0.6 in Single Server mode on Azure
+terraform scripts for deploying QDC 4.0.6 in Single Server mode on Azure (Presales)
+
+This repo is based on original Leigh's Kennedy https://github.com/ljckennedy/terraform-azure-qdc
 
 ---
 ## What you need:
@@ -10,9 +12,12 @@ tenant_id = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 client_id = "bbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 client_secret = "shhhhhhhhhhhhhhhhhhhhhhh"
 subscription_id = "aaaaaaaaaa-bbbbbbb-ccccc"
+presales_rg_name="Pre-Sales-<trigram>" #Predefined RG in Qlik Presales Azure subscription
+presales_subnet_id="/subscriptions/<subscription_id>/resourceGroups/IT-Infra-Mgmt/providers/Microsoft.Network/virtualNetworks/IT-Infra-Mgmt-VNet/subnets/Pre-Sales-Subnet"
+
 #these are up to you.
 deloyment_name = "qdc"
-server_hostname="qdc-hostname" needs to be unique within the azure_location
+server_hostname="qdc-hostname" #needs to be unique within the azure_location
 azure_location="East US"
 administrator="qdc"
 administrator_pass="Pass$SECRET-2001" # needs to meet password complexity rules

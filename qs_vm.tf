@@ -1,10 +1,15 @@
 resource "azurerm_virtual_machine" "qdc" {
+  
   name                  = "${var.deloyment_name}"
-  location              = "${azurerm_resource_group.qdc.location}"
-  resource_group_name   = "${azurerm_resource_group.qdc.name}"
+  #location              = "${azurerm_resource_group.qdc.location}"
+  #resource_group_name   = "${azurerm_resource_group.qdc.name}"
+  location              = "${var.azure_location}"
+  resource_group_name   = "${var.presales_rg_name}"
+  
   network_interface_ids = ["${azurerm_network_interface.qdc-nic.id}"]
   vm_size               = "Standard_D2s_v3"
   delete_os_disk_on_termination = true
+  
   storage_image_reference {
     publisher = "OpenLogic"
     offer     = "CentOS"
@@ -47,7 +52,8 @@ resource "azurerm_virtual_machine" "qdc" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      host     = "${azurerm_public_ip.qdc-pub-ip.fqdn}"
+      host     = "${azurerm_network_interface.qdc-nic.private_ip_address}"
+      #host     = "${azurerm_public_ip.qdc-pub-ip.fqdn}"
       user     = "${var.administrator}"
       private_key = "${file("~/.ssh/id_rsa")}"
     }
@@ -58,7 +64,8 @@ resource "azurerm_virtual_machine" "qdc" {
   provisioner "file" {
     connection {
         type     = "ssh"
-        host     = "${azurerm_public_ip.qdc-pub-ip.fqdn}"
+        host     = "${azurerm_network_interface.qdc-nic.private_ip_address}"
+        #host     = "${azurerm_public_ip.qdc-pub-ip.fqdn}"
         user     = "${var.administrator}"
         private_key = "${file("~/.ssh/id_rsa")}"      
     }
@@ -68,7 +75,8 @@ resource "azurerm_virtual_machine" "qdc" {
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
-      host     = "${azurerm_public_ip.qdc-pub-ip.fqdn}"
+      host     = "${azurerm_network_interface.qdc-nic.private_ip_address}"
+      #host     = "${azurerm_public_ip.qdc-pub-ip.fqdn}"
       user     = "${var.administrator}"
       private_key = "${file("~/.ssh/id_rsa")}"
     }
