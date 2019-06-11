@@ -1,15 +1,15 @@
 ### Variables
 
 # Azure Tenant id
-variable "tenant_id" {
-}
+#variable "tenant_id" {
+#}
 
 # Azure secret key
-variable "client_id" {
-}
+#variable "client_id" {
+#}
 
-variable "client_secret" {
-}
+#variable "client_secret" {
+#}
 
 variable "subscription_id" {
 }

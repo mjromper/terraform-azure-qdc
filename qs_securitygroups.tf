@@ -1,5 +1,5 @@
 resource "azurerm_network_security_group" "qdc-nsg" {
-  name                = "qdc_nsg"
+  name                = "${var.deloyment_name}_nsg"
   #location            = "${azurerm_resource_group.qdc.location}"
   #resource_group_name = "${azurerm_resource_group.qdc.name}"
   location            = "${var.azure_location}"

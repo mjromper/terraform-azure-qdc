@@ -8,15 +8,12 @@ This repo is based on original Leigh's Kennedy https://github.com/ljckennedy/ter
 a variables file i.e. __qdc.tfvars__ containing:
 ```Bash
 #these comes from your azure tenant
-tenant_id = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-client_id = "bbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-client_secret = "shhhhhhhhhhhhhhhhhhhhhhh"
 subscription_id = "aaaaaaaaaa-bbbbbbb-ccccc"
 presales_rg_name="Pre-Sales-<trigram>" #Predefined RG in Qlik Presales Azure subscription
 presales_subnet_id="/subscriptions/<subscription_id>/resourceGroups/IT-Infra-Mgmt/providers/Microsoft.Network/virtualNetworks/IT-Infra-Mgmt-VNet/subnets/Pre-Sales-Subnet"
 
 #these are up to you.
-deloyment_name = "qdc"
+deloyment_name = "qdc" #lowercase
 server_hostname="qdc-hostname" #needs to be unique within the azure_location
 azure_location="East US"
 administrator="qdc"
@@ -34,7 +31,7 @@ These are not publicly downloadable at this time and need to be obtained from yo
 ## How to:
 ```Bash
 cd /somedirectory
-git clone https://github.com/ljckennedy/terraform-azure-qdc.git
+git clone https://github.com/mjromper/terraform-azure-qdc.git
 cp myvarsfileicreated.tfvars ./terraform-azure-qdc/qdc.tfvars
 cp /my-qdc-installers/*.zip ./terraform-azure-qdc/install/files/
 cd ./terraform-azure-qdc

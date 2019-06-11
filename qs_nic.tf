@@ -14,14 +14,14 @@
 #}
 
 resource "azurerm_network_interface" "qdc-nic" {
-  name                = "qdc-nic"
+  name                = "${var.deloyment_name}-nic"
   location            = "${var.azure_location}"
   resource_group_name = "${var.presales_rg_name}" 
   
   network_security_group_id = "${azurerm_network_security_group.qdc-nsg.id}"
 
   ip_configuration {
-    name                          = "qdc-ip-cfg"
+    name                          = "${var.deloyment_name}-ip-cfg"
     #subnet_id                     = "${azurerm_subnet.qdc-subnet.id}"
     subnet_id                     = "${var.presales_subnet_id}"
     private_ip_address_allocation = "Dynamic"

@@ -1,6 +1,6 @@
 resource "azurerm_virtual_machine" "qdc" {
   
-  name                  = "${var.deloyment_name}"
+  name                  = "${var.deloyment_name}-vm"
   #location              = "${azurerm_resource_group.qdc.location}"
   #resource_group_name   = "${azurerm_resource_group.qdc.name}"
   location              = "${var.azure_location}"
