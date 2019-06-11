@@ -6,6 +6,7 @@ provider "azurerm" {
   #tenant_id       = "${var.tenant_id}"
 }
 
+
 # No need to create a resource group as all should go into
 # your predifined assigned Pre-Sales-TRIGRAM resource group.
 #

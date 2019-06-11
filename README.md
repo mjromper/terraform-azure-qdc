@@ -8,6 +8,9 @@ This repo is based on original Leigh's Kennedy https://github.com/ljckennedy/ter
 a variables file i.e. __qdc.tfvars__ containing:
 ```Bash
 #these comes from your azure tenant
+tenant_id = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+client_id = "bbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+client_secret = "shhhhhhhhhhhhhhhhhhhhhhh"
 subscription_id = "aaaaaaaaaa-bbbbbbb-ccccc"
 presales_rg_name="Pre-Sales-<trigram>" #Predefined RG in Qlik Presales Azure subscription
 presales_subnet_id="/subscriptions/<subscription_id>/resourceGroups/IT-Infra-Mgmt/providers/Microsoft.Network/virtualNetworks/IT-Infra-Mgmt-VNet/subnets/Pre-Sales-Subnet"
