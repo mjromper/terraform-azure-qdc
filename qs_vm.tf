@@ -61,6 +61,8 @@ resource "azurerm_virtual_machine" "qdc" {
         "mkdir ~/install"
         ]
     }
+
+  # Copy provision files to Server  
   provisioner "file" {
     connection {
         type     = "ssh"
@@ -72,6 +74,8 @@ resource "azurerm_virtual_machine" "qdc" {
     source      = "install"
     destination = "~"
   }
+
+  # Execute provision scripts in Server
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
